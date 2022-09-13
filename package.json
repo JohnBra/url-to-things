@@ -1,12 +1,12 @@
 {
-  "name": "vite-web-extension",
-  "displayName": "Web Extension Boilerplate",
-  "version": "1.0.4",
-  "description": "A simple chrome extension template with Vite, React, TypeScript and Tailwind CSS.",
+  "name": "url-to-things",
+  "displayName": "URL to Things3",
+  "version": "0.1.0",
+  "description": "Send the URL of the current page to Things3",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnBra/web-extension.git"
+    "url": "https://github.com/JohnBra/url-to-things"
   },
   "scripts": {
     "build": "tsc --noEmit && vite build",

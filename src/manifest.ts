@@ -6,7 +6,10 @@ const manifest: ManifestType = {
   name: pkg.displayName,
   version: pkg.version,
   description: pkg.description,
-  options_page: 'src/pages/options/index.html',
+  permissions: [
+    "background",
+    "activeTab"
+  ],
   background: {
     service_worker: 'src/pages/background/index.js',
     type: 'module',
@@ -14,9 +17,6 @@ const manifest: ManifestType = {
   action: {
     default_popup: 'src/pages/popup/index.html',
     default_icon: 'icon-34.png',
-  },
-  chrome_url_overrides: {
-    newtab: 'src/pages/newtab/index.html',
   },
   icons: {
     "128": 'icon-128.png',
@@ -28,7 +28,15 @@ const manifest: ManifestType = {
       css: ['contentStyle.css'],
     },
   ],
-  devtools_page: 'src/pages/devtools/index.html',
+  "commands": {
+    "send-to-things": {
+      "suggested_key": {
+        "default": "Alt+P",
+        "mac": "Alt+P"
+      },
+      "description": "Send the URL of the current tab to Things."
+    },
+  },
   web_accessible_resources: [
     {
       resources: ['contentStyle.css', 'icon-128.png', 'icon-34.png'],
