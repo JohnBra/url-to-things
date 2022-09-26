@@ -1,5 +1,5 @@
-import pkg from '../package.json';
-import { ManifestType } from '@src/manifest-type';
+import pkg from '../package.json'
+import { ManifestType } from '@src/manifest-type'
 
 const manifest: ManifestType = {
   manifest_version: 3,
@@ -8,15 +8,15 @@ const manifest: ManifestType = {
   description: pkg.description,
   permissions: [
     "background",
-    "activeTab"
+    "activeTab",
+    "scripting"
   ],
   background: {
     service_worker: 'src/pages/background/index.js',
-    type: 'module',
   },
   action: {
-    default_popup: 'src/pages/popup/index.html',
     default_icon: 'icon-34.png',
+    default_title: 'Send URL to Things3'
   },
   icons: {
     "128": 'icon-128.png',
@@ -28,21 +28,12 @@ const manifest: ManifestType = {
       css: ['contentStyle.css'],
     },
   ],
-  "commands": {
-    "send-to-things": {
-      "suggested_key": {
-        "default": "Alt+P",
-        "mac": "Alt+P"
-      },
-      "description": "Send the URL of the current tab to Things."
-    },
-  },
   web_accessible_resources: [
     {
       resources: ['contentStyle.css', 'icon-128.png', 'icon-34.png'],
       matches: [],
     },
   ],
-};
+}
 
-export default manifest;
+export default manifest
