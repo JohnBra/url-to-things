@@ -9,10 +9,10 @@ const manifest: ManifestType = {
   permissions: [
     "background",
     "activeTab",
-    "scripting"
+    "scripting",
   ],
   background: {
-    service_worker: 'src/pages/background/index.js',
+    service_worker: 'background/index.js',
   },
   action: {
     default_icon: 'icon-34.png',
@@ -21,16 +21,17 @@ const manifest: ManifestType = {
   icons: {
     "128": 'icon-128.png',
   },
-  content_scripts: [
-    {
-      matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-      js: ['src/pages/content/index.js'],
-      css: ['contentStyle.css'],
-    },
-  ],
+  commands: {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+P",
+        "mac": "Alt+P"
+      }
+    }
+  },
   web_accessible_resources: [
     {
-      resources: ['contentStyle.css', 'icon-128.png', 'icon-34.png'],
+      resources: ['icon-128.png', 'icon-34.png'],
       matches: [],
     },
   ],
